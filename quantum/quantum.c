@@ -201,6 +201,11 @@ bool process_record_quantum(keyrecord_t *record) {
     // Must run first to be able to mask key_up events.
     process_key_lock(&keycode, record) &&
   #endif
+  #ifdef TOUCHTYPING_FIXER
+    // this must be before the standard processing to intercept KCs which
+    // are not using the correct shift
+    process_touchtyping_fixer(keycode, record) &&
+  #endif
     process_record_kb(keycode, record) &&
   #if defined(MIDI_ENABLE) && defined(MIDI_ADVANCED)
     process_midi(keycode, record) &&

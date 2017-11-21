@@ -107,6 +107,10 @@ extern uint32_t default_layer_state;
 	#include "process_key_lock.h"
 #endif
 
+#ifdef TOUCHTYPING_FIXER
+        #include "process_touchtyping_fixer.h"
+#endif
+
 #ifdef TERMINAL_ENABLE
 	#include "process_terminal.h"
 #else

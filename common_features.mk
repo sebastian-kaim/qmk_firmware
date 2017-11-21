@@ -173,6 +173,11 @@ ifeq ($(strip $(TERMINAL_ENABLE)), yes)
     OPT_DEFS += -DTERMINAL_ENABLE
 endif
 
+ifeq ($(strip $(TOUCHTYPING_FIXER)), yes)
+    SRC += $(QUANTUM_DIR)/process_keycode/process_touchtyping_fixer.c
+    OPT_DEFS += -DTOUCHTYPING_FIXER
+endif
+
 ifeq ($(strip $(USB_HID_ENABLE)), yes)
     include $(TMK_DIR)/protocol/usb_hid.mk
 endif
